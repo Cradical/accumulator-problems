@@ -9,11 +9,9 @@ Solution: This one has already been completed for you.
 */
 
 function test() {
- var string ="This Works!";
- return string;
+  let string = 'This Works!'
+  return string
 }
-
-
 
 /*
 ----------------------------------------
@@ -30,13 +28,9 @@ For example, the tests require that to complete this challenge, your function mu
 results on the index page in the browser.
 */
 
-
-
-
-
-
-
-
+function sum(arr) {
+  return arr.reduce((a, b) => a + b, 0)
+}
 
 /*
 ----------------------------------------
@@ -48,14 +42,13 @@ Write function named doubleLetters that will take a string and double every lett
 Example: if you pass it "abc" then it should return "aabbcc"
 */
 
-
-
-
-
-
-
-
-
+function doubleLetters(str) {
+  let output = ''
+  for (let i = 0; i < str.length; i++) {
+    output += str[i].repeat(2)
+  }
+  return output
+}
 
 /*
 ----------------------------------------
@@ -67,13 +60,9 @@ Write function named doubleNumbers that will take an array of numbers and return
 Example: if you pass it [1,2,3] then it should return [2,4,6]
 */
 
-
-
-
-
-
-
-
+function doubleNumbers(arr) {
+  return arr.map(num => num * 2)
+}
 
 /*
 ----------------------------------------
@@ -89,14 +78,9 @@ Examples:
 - if you call multiplyNumbers([1,2,3], 5) you'd get [5,10,15]
 */
 
-
-
-
-
-
-
-
-
+function multiplyNumbers(arr, multiplier) {
+  return arr.map(num => num * multiplier)
+}
 
 /*
 ----------------------------------------
@@ -110,15 +94,15 @@ Example: if you pass it ["a", "b", "c"] and ["d", "e", "f"] then it should retur
 NOTE: you can assume each input will be the same length
 */
 
+function interleave(arr1, arr2) {
+  const output = []
 
+  for (let i = 0; i < arr1.length; i++) {
+    output.push(arr1[i], arr2[i])
+  }
 
-
-
-
-
-
-
-
+  return output
+}
 
 /*
 ----------------------------------------
@@ -130,12 +114,15 @@ Write function named createRange that will take a number and a default value and
 Example: if you pass it 4 and "Hello" then it should return ["Hello", "Hello", "Hello", "Hello"]
 */
 
+function createRange(num, value) {
+  let output = []
 
+  for (let i = 0; i < num; i++) {
+    output.push(value)
+  }
 
-
-
-
-
+  return output
+}
 
 /*
 ----------------------------------------
@@ -149,12 +136,13 @@ Example:
 If you pass it ["quick", "brown", "fox"] then it should return { "quick": 0, "brown": 1, "fox": 2 }
 */
 
+function flipArray(arr) {
+  let output = {}
 
+  arr.forEach((el, i) => (output[el] = i))
 
-
-
-
-
+  return output
+}
 
 /*
 ----------------------------------------
@@ -169,13 +157,13 @@ If you pass it [[2014, "Horse"], [2015, "Sheep"]] then it should return { 2014: 
 
 */
 
+function arraysToObject(arr) {
+  let output = {}
 
+  arr.forEach(a => (output[a[0]] = a[1]))
 
-
-
-
-
-
+  return output
+}
 
 /*
 ----------------------------------------
@@ -189,16 +177,13 @@ Example:
 If you pass it "hello" then it should return "olleh"
 */
 
-
-
-
-
-
-
-
-
-
-
+function reverseString(str) {
+  let output = ''
+  for (let i = str.length - 1; i >= 0; i--) {
+    output += str[i]
+  }
+  return output
+}
 
 /*
 ----------------------------------------
@@ -214,12 +199,16 @@ If you pass it "yay" then it should return false because it's odd
 If you pass it "heehaw" then it should return false because "hee" doesn't equal "haw"
 */
 
+function repeats(str) {
+  let lastHalf = str.slice(str.length / 2)
+  let firstHalf = str.slice(0, str.length / 2)
 
+  if (str.length % 2 === 0 && firstHalf === lastHalf) {
+    return true
+  }
 
-
-
-
-
+  return false
+}
 
 /*
 ----------------------------------------
@@ -233,12 +222,15 @@ Example:
 If you pass it "abcdef" then it should return "ace" because those represent every other letter
 */
 
+function everyOther(str) {
+  let output = ''
 
+  for (let i = 0; i < str.length; i += 2) {
+    output += str[i]
+  }
 
-
-
-
-
+  return output
+}
 
 /*
 ----------------------------------------
@@ -253,12 +245,18 @@ If you pass "aaa" it should return true
 If you pass "aba" it should return false
 */
 
+function allEqual(str) {
+  let output
+  for (let i = 0; i < str.length - 1; i++) {
+    if (str === '' || str[i] === str[i + 1]) {
+      output = true
+    } else {
+      output = false
+    }
+  }
 
-
-
-
-
-
+  return output
+}
 
 /*
 ----------------------------------------
@@ -273,13 +271,6 @@ If you pass "45" it should return 9
 If you pass "246" it should return 12
 */
 
-
-
-
-
-
-
-
 /*
 ----------------------------------------
 CHALLENGE
@@ -291,15 +282,6 @@ Example:
 
 If you pass "you" it should return 2
 */
-
-
-
-
-
-
-
-
-
 
 /*
 ----------------------------------------
@@ -315,13 +297,6 @@ If you pass "you" it should return ["y", "o", "u"]
 NOTE: do not use the builtin `split` method
 */
 
-
-
-
-
-
-
-
 /*
 ----------------------------------------
 CHALLENGE
@@ -336,13 +311,6 @@ Example:
 If you pass "Hello" it should return [ 72, 101, 108, 108, 111 ]
 */
 
-
-
-
-
-
-
-
 /*
 ----------------------------------------
 CHALLENGE
@@ -355,13 +323,6 @@ Example:
 If you pass "Yo" it should return {Y: 0, o: 1}
 If you pass "Hello" it should return {H: 0, e: 1, l: 3, o: 4}
 */
-
-
-
-
-
-
-
 
 /*
 ----------------------------------------
@@ -376,14 +337,6 @@ If you pass "Yo" it should return {Y: 1, o: 1}
 If you pass "Hello" it should return {"H": 1, "e": 1, "l": 2, "o": 1}
 */
 
-
-
-
-
-
-
-
-
 /*
 ----------------------------------------
 CHALLENGE
@@ -397,15 +350,6 @@ If you pass 0,2 it should return false because the only number between 0 and 2 i
 If you pass 0,6 it should return true because between 0 and six (the numbers 1,2,3,4,5) there are three odds - 1, 3 and 5
 */
 
-
-
-
-
-
-
-
-
-
 /*
 ----------------------------------------
 CHALLENGE
@@ -417,13 +361,6 @@ Example:
 
 If you pass "a", 3, "*" it should return "**a" - that is, a string of length 3, padded on the left by the "*" character
 */
-
-
-
-
-
-
-
 
 /*
 ----------------------------------------
@@ -437,13 +374,6 @@ Example:
 If you pass "a", 3 it should return "aaa"
 If you pass "b", 3 it should return "bb"
 */
-
-
-
-
-
-
-
 
 /*
 ----------------------------------------
@@ -460,13 +390,6 @@ If you pass 4 it should return 24 since that's 4 * 3 * 2 * 1
 If you pass 5 it should return 120 since that's 5 * 4 * 3 * 2 * 1
 */
 
-
-
-
-
-
-
-
 /*
 ----------------------------------------
 CHALLENGE
@@ -480,13 +403,6 @@ If you pass 1 it should return [1]
 If you pass 3 it should return [1,2,3]
 */
 
-
-
-
-
-
-
-
 /*
 ----------------------------------------
 CHALLENGE
@@ -499,14 +415,6 @@ Example:
 If you pass 1,4 it should return {"1": "odd", "2": "even", "3": "odd", "4": "even"}
 */
 
-
-
-
-
-
-
-
-
 /*
 ----------------------------------------
 CHALLENGE
@@ -518,15 +426,6 @@ Example:
 
 If you pass 2,"d" it should return {"d": true, "dd": true}
 */
-
-
-
-
-
-
-
-
-
 
 /*
 ----------------------------------------
@@ -541,13 +440,6 @@ If you pass [1,1], 1 it should return true
 If you pass [1,2], 1 it should return false
 */
 
-
-
-
-
-
-
-
 /*
 ----------------------------------------
 CHALLENGE
@@ -560,13 +452,6 @@ Example:
 If you pass [1,2], 1 it should return true
 If you pass [3,2], 1 it should return false
 */
-
-
-
-
-
-
-
 
 /*
 ----------------------------------------
@@ -581,18 +466,6 @@ If you pass ["Sue", "Will"] it should return "Sue and Will"
 If you pass ["Sue", "Will", "Rachel"] it should return "Sue, Will and Rachel"
 */
 
-
-
-
-
-
-
-
-
-
-
-
-
 /*
 ----------------------------------------
 CHALLENGE
@@ -606,13 +479,6 @@ If you pass ["Sue", "Will"] it should return "SW"
 If you pass ["Java", Script", "Object", "Notation"] it should return "JSON"
 */
 
-
-
-
-
-
-
-
 /*
 ----------------------------------------
 CHALLENGE
@@ -624,16 +490,6 @@ Example:
 
 If you pass [0,-3,2,5] it should return -3
 */
-
-
-
-
-
-
-
-
-
-
 
 /*
 ----------------------------------------
@@ -648,13 +504,6 @@ If you pass [{id: 1, name: "Joe"}, {id: 2, name: "Sue"}] it should return {1: {i
 
 */
 
-
-
-
-
-
-
-
 /*
 ----------------------------------------
 CHALLENGE
@@ -666,13 +515,6 @@ Example:
 
 If you pass {id: 1, name: "Joe"} it should return {1: "id", Joe: "name"}
 */
-
-
-
-
-
-
-
 
 /*
 ----------------------------------------
@@ -689,13 +531,6 @@ Example:
 If you pass {"contract": "foo"}, "Fred" it should return {"contract-signed": "foo - Fred"}
 */
 
-
-
-
-
-
-
-
 /*
 ----------------------------------------
 CHALLENGE
@@ -707,13 +542,6 @@ Example:
 
 If you pass {name: "Will", age: 24} it should return ["name - will", "age - 24"]
 */
-
-
-
-
-
-
-
 
 /*
 ----------------------------------------
@@ -727,13 +555,6 @@ Example:
 If you pass {a: 1, b: 2} it should return 3
 */
 
-
-
-
-
-
-
-
 /*
 ----------------------------------------
 CHALLENGE
@@ -745,19 +566,6 @@ Example:
 
 If you pass {1999: 4036, 2000: 7654} it should return '2000'
 */
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /*
 ----------------------------------------
@@ -771,15 +579,6 @@ Example:
 If you pass {1999: 4036, 2000: 7654} and 4036, it should return '1999'
 */
 
-
-
-
-
-
-
-
-
-
 /*
 ----------------------------------------
 CHALLENGE
@@ -791,13 +590,5 @@ Example:
 
 If you pass {1999: 4036, 2000: 7654} and 4036, it should return true
 */
-
-
-
-
-
-
-
-
 
 //
