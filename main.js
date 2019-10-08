@@ -271,6 +271,22 @@ If you pass "45" it should return 9
 If you pass "246" it should return 12
 */
 
+function sumLetters(str) {
+  // You can use the spread operator here to convert the
+  // string to an array of characters, but I think it is
+  // more readable to use Array.from()
+
+  let arr = Array.from(str)
+  let output = 0
+
+  arr.forEach(el => {
+    el = parseInt(el)
+    output += el
+  })
+
+  return output
+}
+
 /*
 ----------------------------------------
 CHALLENGE
