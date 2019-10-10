@@ -299,6 +299,11 @@ Example:
 If you pass "you" it should return 2
 */
 
+function countVowels(str) {
+  if (!str) return 0
+  return str.match(/[aeiou]/gi).length
+}
+
 /*
 ----------------------------------------
 CHALLENGE
